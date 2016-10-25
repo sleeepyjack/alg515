@@ -29,24 +29,36 @@ HOSTDEVICEQUALIFIER INLINEQUALIFIER index_t binom(index_t n, index_t k)
 
 // http://dl.acm.org/citation.cfm?id=355739
 template <typename index_t>
-HOSTDEVICEQUALIFIER INLINEQUALIFIER void comb(index_t N, index_t P, index_t L, index_t * C)
+HOSTDEVICEQUALIFIER INLINEQUALIFIER void alg515(index_t N, index_t P, index_t L, index_t * C)
 {
-  index_t K = 0;
-  index_t P1 = P-1;
-  index_t R;
-  for(index_t I = 1; I < P; I++)
+  index_t X = 1;
+  index_t R = binom(N-X, P-1);
+  index_t K = R;
+
+  while(K <= L)
   {
-    C[I-1] = -1; //NOTE does this work for unsigned types?
-    if(I != 1) C[I-1] = C[I-2];
-    do
-    {
-      C[I-1] += 1;
-      R = binom(N-C[I-2]-1, P-I);
-      K += R;
-    }while(K > L);
-    K -= R;
+    X++;
+    R  = binom(N-X, P-1);
+    K += R;
   }
-  C[P-1] = C[P1-1] + L - K + 1;
+  K -= R;
+  C[0] = X-1;
+
+  for(index_t I = 2; I < P; I++)
+  {
+    X++;
+    R  = binom(N-X, P-I);
+    K += R;
+    while(K <= L)
+    {
+      X++;
+      R  = binom(N-X, P-I);
+      K += R;
+    }
+    K -= R;
+    C[I-1] = X-1;
+  }
+  C[P-1] = X + L - K;
 }
 
 #endif /* ALG_515_CUH */
