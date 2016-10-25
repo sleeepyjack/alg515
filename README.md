@@ -2,7 +2,7 @@
 ---
 Python, C/C++ and CUDA implementation of Algorithm 515 proposed by B. P. Buckles. (ref. [*publication*](http://dl.acm.org/citation.cfm?id=355739))
 
-Algorithm 515 establishes a one-to-one correspondence between the universe of *p* combinations of *n* items *(1 <= p <= n)* and the first `binom(n, p)` natural numbers in lexicographical order.
+Algorithm 515 establishes a one-to-one correspondence between the universe of *p*-combinations of *n* items *(1 <= p <= n)* and the first `binom(n, p)` natural numbers in lexicographical order.
 
 ### Example:
 
