@@ -17,7 +17,7 @@ for l in range(nCp):
 ```
 
 ```
-# of distinct combination: 10
+# of distinct combinations: 10
 combinations:
 [0, 1, 2]
 [0, 1, 3]
