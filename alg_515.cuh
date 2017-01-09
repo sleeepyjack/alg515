@@ -1,8 +1,6 @@
 #ifndef ALG_515_CUH
 #define ALG_515_CUH
 
-#include "cudahelpers/cuda_helpers.cuh"
-
 // http://stackoverflow.com/questions/24294192/computing-the-binomial-coefficient-in-c
 template <typename index_t>
 HOSTDEVICEQUALIFIER INLINEQUALIFIER index_t binom(index_t n, index_t k)
