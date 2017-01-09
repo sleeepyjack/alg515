@@ -1,3 +1,0 @@
-[submodule "cuda/cudahelpers"]
-	path = cuda/cudahelpers
-	url = https://github.com/sleeepyjack/cudahelpers.git
